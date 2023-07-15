@@ -1,0 +1,31 @@
+<div class="row justify-content-center" id="loginFormdiv">
+  <div class="col-md-3 border" style="padding: 20px">
+    <div class="text-start fw-bold my-2">Login into your account</div>
+    <div class="col-md-12"><hr /></div>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="row my-2">
+        <div class="col-md-12">
+          <input
+            formControlName="email"
+            id="email"
+            type="email"
+            class="form-control"
+            placeholder="Email"
+          />
+        </div>
+      </div>
+      <div class="row my-2">
+        <div class="col-md-12">
+          <input
+            formControlName="password"
+            id="password"
+            type="password"
+            class="form-control"
+            placeholder="Password"
+          />
+        </div>
+      </div>
+      <button class="btn btn-primary fw-bold form-control">Login</button>
+    </form>
+  </div>
+</div>
