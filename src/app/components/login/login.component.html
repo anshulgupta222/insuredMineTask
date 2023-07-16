@@ -1,8 +1,8 @@
 <div class="row justify-content-center" id="loginFormdiv">
-  <div class="col-md-3 border" style="padding: 20px; font-size:12px">
+  <div class="col-md-3 border" style="padding: 20px;">
     <div class="text-start fw-bold my-2">Login into your account</div>
     <div class="col-md-12"><hr /></div>
-    <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <form [formGroup]="loginForm" (ngSubmit)="login()" style="font-size:12px">
       <div *ngIf="loginForm?.errors" class="alert alert-danger">
         Please resolve the errors for log-in
       </div>
