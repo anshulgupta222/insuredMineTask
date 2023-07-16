@@ -2,18 +2,19 @@ import { Injectable } from '@angular/core';
 import { UserLogin } from '../Models/user-login';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { usersDB } from '../dbData';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { User } from '../Models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  $userName = new BehaviorSubject<any|undefined>(undefined);
+  $userName = new BehaviorSubject<string|undefined>(undefined);
   constructor(private readonly router : Router) {this.refreshUser(); }
 
-  login(credential:UserLogin):any{
-    let validUserData = usersDB.find(user=>(user.userid===credential.email && user.password === credential.password))
+  login(credential:UserLogin): User | undefined {
+    let validUserData : User | undefined = usersDB.find(user=>(user.userid===credential.email && user.password === credential.password))
     return validUserData;
   }
 
@@ -25,8 +26,7 @@ export class AuthService {
 
   refreshUser():void{
     let userName = localStorage.getItem('user');
-    console.log(userName);
-    this.$userName.next(userName);
+    this.$userName.next(userName!);
   }
 
 }

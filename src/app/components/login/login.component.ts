@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { UserLogin } from 'src/app/Models/user-login';
@@ -19,22 +19,27 @@ export class LoginComponent {
   ) { }
 
   loginForm = new FormGroup({
-    email: new FormControl(),
-    password: new FormControl()
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required])
   })
 
   login(): void {
-    let credentials = this.loginForm.value as UserLogin;
-    let isValidUser = this.authService.login(credentials);
-    console.log(isValidUser);
-    if (isValidUser === undefined) {
-      this.toastr.error("Access Denied");
+    if (this.loginForm.valid) {
+      let credentials = this.loginForm.value as UserLogin;
+      let isValidUser = this.authService.login(credentials);
+      if (isValidUser === undefined) {
+        this.toastr.error("Access Denied");
+      }
+      else {
+        this.toastr.success("Access Granted");
+        localStorage.setItem('user', JSON.stringify(isValidUser.username));
+        this.authService.refreshUser();
+        this.router.navigate(['/gallery'])
+      }
     }
     else {
-      this.toastr.success("Access Granted");
-      localStorage.setItem('user', JSON.stringify(isValidUser.username));
-      this.authService.refreshUser();
-      this.router.navigate(['/gallery'])
+      this.loginForm.setErrors({});
     }
+
   }
 }

@@ -1,0 +1,53 @@
+.searchbox{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#inputBox{
+  margin-left: 5%;
+  width: 600px;
+  padding: 8px;
+  border:  1px solid black;
+  border-radius: 4px;
+  background: #ffff;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
+
+.mat-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+.mat-option div {
+  flex: 1;
+  text-align: left;
+  font-size: 12px;
+}
+
+.mat-option div:nth-child(2),
+.mat-option div:nth-child(3),
+.mat-option div:nth-child(4) {
+  flex: none;
+  margin-left: 8px;
+}
+
+.option-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: -8px;
+}
+
+.option-row div {
+  flex: 1;
+  text-align: left;
+  margin-right: 8px;
+}
+
+.option-row div:last-child {
+  margin-right: 0;
+}

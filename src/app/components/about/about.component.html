@@ -14,40 +14,12 @@
     </div>
   </div>
 <div class="card-group">
-  <div class="card">
-    <img src="./assets/images/user_img.PNG" class="card-img-top" alt="">
-    <div class="card-body">
-      <h6 class="card-title">MR X</h6>
-      <p class="card-text">CHIEF EXECUTIVE OFFICER</p>
+    <div class="card" *ngFor="let image of imagesObject">
+      <img [src]="image.imgSrc" class="card-img-top" alt="leders_img">
+      <div class="card-body">
+        <h6 class="card-title">{{image.name}}</h6>
+        <p class="card-text">{{image.post}}</p>
+      </div>
     </div>
-  </div>
-  <div class="card">
-    <img src="./assets/images/user_img.PNG" class="card-img-top" alt="">
-    <div class="card-body">
-      <h6 class="card-title">MR Y</h6>
-      <p class="card-text">CHIEF BRAND OFFICER</p>
-    </div>
-  </div>
-  <div class="card">
-    <img src="./assets/images/user_img.PNG" class="card-img-top" alt="">
-    <div class="card-body">
-      <h6 class="card-title">MR Z</h6>
-      <p class="card-text">CHIEF FINANCIAL OFFICER</p>
-    </div>
-  </div>
-  <div class="card">
-    <img src="./assets/images/user1_img.PNG" class="card-img-top" alt="">
-    <div class="card-body">
-      <h6 class="card-title">MRS A</h6>
-      <p class="card-text">CHIEF OPERATION OFFICER</p>
-    </div>
-  </div>
-  <div class="card">
-    <img src="./assets/images/user1_img.PNG" class="card-img-top" alt="">
-    <div class="card-body">
-      <h6 class="card-title">MRS B</h6>
-      <p class="card-text">EXECUTIVE VICE PRESIDENT</p>
-    </div>
-  </div>
 </div>
 </div>
