@@ -9,7 +9,7 @@ import { GalleryImg } from 'src/app/Models/gallery-img';
 export class GalleryComponent {
 
   displayStyle: string = 'none';
-  modalImg: any;
+  modalImg: GalleryImg|undefined;
   show: boolean = false;
   discription: string = "I am a passionate individual with a zest for life and a drive to make a positive impact on the world. I have a diverse range of interests,from exploring new cultures and cuisines to diving into the depths of scientific research. I believe in the power of collaboration and strive to connect with like-minded individuals who share my enthusiasm for growth and learning. With an open mind and a heart full curiosity, I'm excited to embark on new adventures and embrace the opportunities that life presents. Let's connect,share ideas, and create something extraordinary together!"
 
@@ -28,7 +28,7 @@ export class GalleryComponent {
     this.displayStyle = 'none';
   }
 
-  openPopUp(img: any): void {
+  openPopUp(img: GalleryImg): void {
     this.show = true;
     this.modalImg = img;
     this.displayStyle = 'block'

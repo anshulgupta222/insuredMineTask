@@ -19,7 +19,7 @@ ngOnInit(): void {
     startWith(''),
     switchMap(value => {
       if (value && value !== '') {
-        return this.filterItems(value as string);
+        return this._filterItems(value as string);
       } else {
         return of([]);
       }
@@ -27,7 +27,7 @@ ngOnInit(): void {
   );
 }
 
-filterItems(value: string): Observable<User[]> {
+private _filterItems(value: string): Observable<User[]> {
   const filterValue = value.toLowerCase();
   return of(usersDB.filter(item => item.userid.toLowerCase().includes(filterValue)));
 }
